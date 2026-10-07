@@ -24,18 +24,18 @@ int32_t main(void) {
     Sysctrl_SetPeripheralGate(SysctrlPeripheralGpio, TRUE);
 
     DDL_ZERO_STRUCT(stcGpioCfg);
-    stcGpioCfg.enDir = GpioDirOut;         // Output mode
-    stcGpioCfg.enDrv = GpioDrvH;           // High drive capability
-    stcGpioCfg.enPuPd = GpioNoPuPd;        // No internal pull resistor
+    stcGpioCfg.enDir = GpioDirOut;        
+    stcGpioCfg.enDrv = GpioDrvH;           
+    stcGpioCfg.enPuPd = GpioNoPuPd;        
 
     Gpio_Init(GpioPortD, GpioPin2, &stcGpioCfg);
 
     // Main execution loop
     while (1) {
-        Gpio_SetIO(GpioPortD, GpioPin2);   // Drive Pin HIGH (3.3V)
-        delay_ms(500);                     // 500 ms delay
+        Gpio_SetIO(GpioPortD, GpioPin2);   
+        delay_ms(500);                  
 
-        Gpio_ClrIO(GpioPortD, GpioPin2);   // Drive Pin LOW (0V)
-        delay_ms(500);                     // 500 ms delay
+        Gpio_ClrIO(GpioPortD, GpioPin2);   
+        delay_ms(500);                    
     }
 }
